@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Info</title>
+
+    <link rel="stylesheet" th:href="@{/css/demo.css}"/>
+
+</head>
+
+<body>
+<h3>Customer Confirmation</h3>
+First name: <span th:text="${customer.firstName}"/>
+<br><br>
+Last name: <span th:text="${customer.lastName}"/>
+<br><br>
+Freepasses: <span th:text="${customer.freePasses}"/>
+<br><br>
+Postal Code: <span th:text="${customer.postalCode}"/>
+<br><br>
+Course Code: <span th:text="${customer.courseCode}"/>
+</body>
+
+
+</html>

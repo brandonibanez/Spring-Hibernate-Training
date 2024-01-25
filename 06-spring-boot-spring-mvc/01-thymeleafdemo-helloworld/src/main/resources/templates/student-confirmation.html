@@ -16,6 +16,14 @@ First name: <span th:text="${student.firstName}"/>
 Last name: <span th:text="${student.lastName}"/>
 <br><br>
 Country: <span th:text="${student.country}"/>
+<br><br>
+Favorite Language: <span th:text="${student.favoriteLanguage}"/>
+<br><br>
+Favorite Colors:
+<ul>
+    <li th:each="tempColors : ${student.color}" th:text="${tempColors}" />
+</ul>
 </body>
+
 
 </html>

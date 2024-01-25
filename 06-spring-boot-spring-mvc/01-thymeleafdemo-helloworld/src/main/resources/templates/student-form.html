@@ -18,7 +18,17 @@
     <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"/>
   </select>
   <br><br>
-
+  <input type="radio"
+           th:field="*{favoriteLanguage}"
+           th:each="tempLanguage : ${languages}"
+           th:value="${tempLanguage}"
+           th:text="${tempLanguage}"/>
+  <br><br>
+  <input type="checkbox"
+         th:field="*{color}"
+         th:each="tempColors : ${colors}"
+         th:value="${tempColors}"
+         th:text="${tempColors}"/>
   <input type="submit" value="Submit"/>
 
 </form>
