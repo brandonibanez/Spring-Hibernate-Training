@@ -8,6 +8,21 @@ public class LoginController {
 
     @GetMapping("/showMyLoginPage")
     public String showMyLoginPage() {
-        return "login-page";
+        return "fancy-login";
+    }
+
+    @GetMapping("/leaders")
+    public String showLeaders() {
+        return "leaders";
+    }
+
+    @GetMapping("/systems")
+    public String systems() {
+        return "systems";
+    }
+
+    @GetMapping("/access-denied")
+    public String accessDenied() {
+        return "access-denied";
     }
 }
