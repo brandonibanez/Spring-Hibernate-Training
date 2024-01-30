@@ -4,11 +4,14 @@ import com.brandoncode.cruddemo.dao.AppDAO;
 import com.brandoncode.cruddemo.entity.Course;
 import com.brandoncode.cruddemo.entity.Instructor;
 import com.brandoncode.cruddemo.entity.InstructorDetail;
+import com.brandoncode.cruddemo.entity.Review;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @SpringBootApplication
@@ -21,20 +24,41 @@ public class CruddemoApplication {
 	@Bean
     public CommandLineRunner commandLineRunner(AppDAO appDao) {
 		return runner -> {
-//			createInstructor(appDao);
-//			findInstructor(appDao);
-//			deleteInstructor(appDao);
-//			deleteInstructorDetailById(appDao, 1);
-//			createInstructorWithCourses(appDao);
-//			findInstructorWithCourses(appDao);
-//			findCoursesForInstructor(appDao);
-//			findInstructorWithCoursesJoinFetch(appDao);
-//			updateInstructor(appDao);
-//			updateCourse(appDao);
-//			deleteInstructor(appDao);
-			deleteCourse(appDao);
+//			createCourseAndReviews(appDao);
+//			retrieveCourseAndReviews(appDao);
+			deleteCourseAndReviews(appDao);
 			System.out.println("Done!");
 		};
+	}
+
+	private void deleteCourseAndReviews(AppDAO appDao) {
+		int id=10;
+
+		System.out.println("Deteleting course id: " + id);
+
+		appDao.deleteCourseById(id);
+	}
+
+	private void retrieveCourseAndReviews(AppDAO appDao) {
+		int id=10;
+		System.out.println("Finding course id: " + id);
+		Course course = appDao.findCourseAndReviewsByCourseId(id);
+
+		System.out.println("Instructor detail with id of " + id + ": " + course);
+		System.out.println("Instructor associated with the details: " + course.getReviews());
+	}
+
+	private void createCourseAndReviews(AppDAO appDao) {
+		Course course = new Course("Brandon Browns Super Amazing Masterclasses");
+
+		course.addReview(new Review("This is the best course in the world men!"));
+		course.addReview(new Review("I will buy this course again and again for the rest of my life!"));
+
+		System.out.println("Saving the course: " + course);
+		System.out.println(course);
+		System.out.println(course.getReviews());
+
+		appDao.save(course);
 	}
 
 	private void deleteCourse(AppDAO appDao) {
