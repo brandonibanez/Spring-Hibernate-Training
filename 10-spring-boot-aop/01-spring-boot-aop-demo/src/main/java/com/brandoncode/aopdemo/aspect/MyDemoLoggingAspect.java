@@ -28,8 +28,28 @@ public class MyDemoLoggingAspect {
 //        System.out.println("@Before | Checking authorization of the user with any add method...");
 //    }
 
-    @Before("execution(* add*())")
-    public void beforeAddAnyMethodAnyReturnAdvice() {
+//    @Before("execution(* add*())")
+//    public void beforeAddAnyMethodAnyReturnAdvice() {
+//        System.out.println("@Before | Checking authorization of the user with any add method...");
+//    }
+
+//    @Before("execution(* add*(com.brandoncode.aopdemo.Account))")
+//    public void beforeAddAnyMethodAnyReturnWithAccountParamAdvice() {
+//        System.out.println("@Before | Checking authorization of the user with any add method...");
+//    }
+
+//    @Before("execution(* add*(com.brandoncode.aopdemo.Account, ..))")
+//    public void beforeAddAnyMethodAnyReturnWithAccountParamAdvice() {
+//        System.out.println("@Before | Checking authorization of the user with any add method...");
+//    }
+
+//    @Before("execution(* add*(..))")
+//    public void beforeAddAnyMethodAnyReturnWithAccountParamAdvice() {
+//        System.out.println("@Before | Checking authorization of the user with any add method...");
+//    }
+
+    @Before("execution(* com.brandoncode.aopdemo.dao.*.*(..))")
+    public void beforeAddAccountAdvice() {
         System.out.println("@Before | Checking authorization of the user with any add method...");
     }
 
